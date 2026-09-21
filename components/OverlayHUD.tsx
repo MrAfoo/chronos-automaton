@@ -77,7 +77,7 @@ export const OverlayHUD: React.FC<OverlayHUDProps> = ({
   const conditionSummary = useMemo(() => getPartConditionSummary(), []);
 
   return (
-    <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 sm:p-10 select-none z-10 text-white font-sans">
+    <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-3 sm:p-6 md:p-10 select-none z-10 text-white font-sans overflow-hidden">
       {/* Top Header & Horology Title */}
       <div className="flex justify-between items-start gap-4">
         {/* Top Header & Horology Title (Hidden during Exploded Horology Inspection or Play Mode) */}
@@ -519,7 +519,7 @@ export const OverlayHUD: React.FC<OverlayHUDProps> = ({
                       title={`Atmospheric Lighting Mood: ${preset.name} (${preset.subtitle})`}
                     >
                       <span className="text-sm leading-none">{preset.icon}</span>
-                      <span className="text-[11px]">{preset.name}</span>
+                      <span className="hidden sm:inline text-[11px]">{preset.name}</span>
                     </button>
                   );
                 })}
@@ -540,8 +540,11 @@ export const OverlayHUD: React.FC<OverlayHUDProps> = ({
                 }
               >
                 <span className="text-sm leading-none">{performanceMode ? "⚡" : "💎"}</span>
-                <span className="text-[11px]">
+                <span className="hidden sm:inline text-[11px]">
                   {performanceMode ? "Performance (60 FPS)" : "Ultra Quality"}
+                </span>
+                <span className="sm:hidden text-[11px]">
+                  {performanceMode ? "60 FPS" : "Ultra"}
                 </span>
               </button>
             </div>
